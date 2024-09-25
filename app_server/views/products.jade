@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  .products-page
+    h1 Products
+
+    // Filter products by category
+    .category-filter
+      h3 Filter by Category:
+      ul
+        li
+          a(href='/products?category=all') All
+        li
+          a(href='/products?category=fruits') Fruits
+        li
+          a(href='/products?category=vegetables') Vegetables
+        li
+          a(href='/products?category=bakery') Bakery
+        li
+          a(href='/products?category=dairy') Dairy
+        li
+          a(href='/products?category=beverages') Beverages
+        li
+          a(href='/products?category=snacks') Snacks
+
+    // Display the products
+    .products-grid
+      each product in products
+        .product-card
+          img(src=`/images/${product.image}`, alt=`${product.name}`)
+          h2 #{product.name}
+          p Price: ₹#{product.price}
+          p #{product.weight}
+          p #{product.description}
+          
+          // Form for adding product to cart
+          form(method='POST', action='/cart/add')
+            input(type='hidden', name='productId', value=product._id)
+            input(type='submit', value='Add to Cart', class='button outline-button')

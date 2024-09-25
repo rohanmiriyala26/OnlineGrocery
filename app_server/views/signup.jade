@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .auth-page
+    .auth-container
+      h1 Sign Up
+      form(method='POST', action='/resignin')
+        
+        .form-group
+          label(for='first-name') First Name:
+          input(type='text', name='first-name', required=true, placeholder='Enter your first name', class='input-field')
+
+        .form-group
+          label(for='last-name') Last Name:
+          input(type='text', name='last-name', required=true, placeholder='Enter your last name', class='input-field')
+
+        .form-group
+          label(for='phone') Phone Number:
+          input(type='tel', name='phone', required=true, placeholder='Enter your phone number', class='input-field', pattern='[0-9]{10}', title='Enter a 10-digit phone number')
+
+        .form-group
+          label(for='address') Address:
+          input(type='text', name='address', required=true, placeholder='Enter your address', class='input-field')
+
+        .form-group
+          label(for='password') Password:
+          input(type='password', name='password', required=true, placeholder='Enter your password', class='input-field')
+
+        .form-group
+          label(for='confirm-password') Confirm Password:
+          input(type='password', name='confirm-password', required=true, placeholder='Confirm your password', class='input-field')
+
+        input(type='submit', value='Sign Up', class='button auth-button')
+      
+      p.or-divider OR
+      
+      // Login button-like link for users with an existing account
+      p.create-account-text
+        span Already have an account? 
+        a(href='/signin-signup', class='button create-account-button') Sign In
