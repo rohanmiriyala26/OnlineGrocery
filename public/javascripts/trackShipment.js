@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
       timeline: ['Order Placed', 'Dispatched', 'Out for Delivery'],
       deliveryDate: '14th October 2024, 2 PM',
       payment: { total: 208, paid: true, method: 'Card' },
-      contact: { name: 'John Doe', phone: '+91-9876543210', email: 'john@example.com' },
-      address: '221B Baker Street, London',
+      contact: { name: 'Raghav Keerthana', phone: '+91-9908942130', email: 'psrsvkmsharma@example.com' },
+      address: 'K-27, Sector 47, Noida, Uttar Pradesh, 201301',
       orderDetails: [{ item: 'Apples', quantity: 2, price: 180, image: 'apple.png' }, { item: 'Milk', quantity: 1, price: 28, image: 'milk.png' }],
       currentStep: 3
     },
@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
       timeline: ['Order Placed', 'Dispatched', 'Out for Delivery', 'Delivered'],
       deliveryDate: '13th October 2024',
       payment: { total: 180, paid: true, method: 'Cash on Delivery' },
-      contact: { name: 'Jane Smith', phone: '+91-9123456780', email: 'jane@example.com' },
-      address: '10 Downing Street, London',
+      contact: { name: 'V Sai Rahul', phone: '+91-9347613587', email: 'rsv239@example.com' },
+      address: 'Flat 392, B Wing, Green Meadows, Thane, Maharashtra, 400601',
       orderDetails: [{ item: 'Bananas', quantity: 2, price: 140, image: 'banana.png' }, { item: 'Bread', quantity: 1, price: 40, image: 'bread.png' }],
       currentStep: 4
     },
@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
       status: 'Order Placed - Awaiting Payment',
       timeline: ['Order Placed'],
       deliveryDate: 'Expected: 15th October 2024',
-      payment: { total: 500, paid: false, method: 'UPI Payment' },
-      contact: { name: 'Alice Brown', phone: '+91-8765432109', email: 'alice@example.com' },
-      address: '221 Maple Drive, New York',
-      orderDetails: [{ item: 'Rice', quantity: 1, price: 400, image: 'rice.png' }, { item: 'Spices', quantity: 5, price: 100, image: 'spices.png' }],
+      payment: { total: 160, paid: false, method: 'UPI Payment' },
+      contact: { name: 'F Anand', phone: '+91-9030252306', email: 'botguy@example.com' },
+      address: '06, Anand Nagar, Indore, Madhya Pradesh, 452001',
+      orderDetails: [{ item: 'Chips', quantity: 2, price: 40, image: 'chips.png' }, { item: 'Cookies', quantity: 2, price: 120, image: 'cookies.png' }],
       currentStep: 1
     }
   };
