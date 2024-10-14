@@ -50,19 +50,20 @@ exports.addProduct = (req, res) => {
 };
 
 // Cart management functions
-
 // Add product to the cart
 const addProductToCart = (product, cart) => {
   if (!cart) {
     cart = []; // Create an empty cart if it doesn't exist
   }
 
+  // Find if the product is already in the cart
   const cartItem = cart.find(item => item._id == product._id);
 
   if (cartItem) {
     cartItem.quantity += 1; // Increase quantity if the product is already in the cart
   } else {
-    cart.push({ ...product, quantity: 1 }); // Add new product with quantity 1
+    // Add new product with a unique identifier and set quantity to 1
+    cart.push({ ...product, quantity: 1 });
   }
 
   return cart;
@@ -74,7 +75,22 @@ const removeProductFromCart = (productId, cart) => {
     return []; // Return an empty array if the cart doesn't exist
   }
 
+  // Filter the cart to remove the product by ID
   return cart.filter(item => item._id != productId);
+};
+
+// Update product quantity in the cart
+const updateProductQuantity = (productId, newQty, cart) => {
+  if (!cart) {
+    return []; // Return an empty array if the cart doesn't exist
+  }
+
+  return cart.map(item => {
+    if (item._id == productId) {
+      item.quantity = newQty; // Update the quantity
+    }
+    return item;
+  });
 };
 
 // Get the cart or return an empty cart if none exists
@@ -82,7 +98,7 @@ const getCart = (cart) => {
   return cart || [];
 };
 
-// Add a product to the cart
+// Add product to the cart and save to session
 exports.addToCart = (req, res) => {
   const productId = req.body.productId;
 
@@ -90,6 +106,7 @@ exports.addToCart = (req, res) => {
     return res.status(400).send('Product ID is required');
   }
 
+  // Find the product by its ID
   const product = products.find(p => p._id == productId);
 
   if (!product) {
@@ -100,24 +117,37 @@ exports.addToCart = (req, res) => {
   const updatedCart = addProductToCart(product, req.session.cart);
   req.session.cart = updatedCart;  // Save the updated cart in the session
 
-  console.log('Cart:', req.session.cart);  // Debugging log for cart
+  res.redirect('/cart');
+};
+
+// Remove an item from the cart
+exports.removeFromCart = (req, res) => {
+  const productId = req.body.productId;
+
+  // Remove the product from the cart
+  const updatedCart = removeProductFromCart(productId, req.session.cart);
+  req.session.cart = updatedCart;  // Save the updated cart in the session
+
+  res.redirect('/cart');
+};
+
+// Update item quantity
+exports.updateCartQuantity = (req, res) => {
+  const { productId, newQty } = req.body;
+
+  if (!productId || !newQty) {
+    return res.status(400).send('Product ID and new quantity are required');
+  }
+
+  // Update the product quantity in the cart
+  const updatedCart = updateProductQuantity(productId, newQty, req.session.cart);
+  req.session.cart = updatedCart;  // Save the updated cart in the session
 
   res.redirect('/cart');
 };
 
 // Display the cart
 exports.showCart = (req, res) => {
-  const cart = getCart(req.session.cart);  // Get the current cart
+  const cart = getCart(req.session.cart);  // Get the current cart from the session
   res.render('cart', { title: 'Your Cart', cart });
-};
-
-// Remove an item from the cart
-exports.removeFromCart = (req, res) => {
-  const productId = req.body.productId;
-  const updatedCart = removeProductFromCart(productId, req.session.cart);  // Remove the product
-  req.session.cart = updatedCart;  // Save the updated cart in the session
-
-  console.log('Item removed from cart:', req.session.cart);  // Debugging log for cart
-
-  res.redirect('/cart');
 };

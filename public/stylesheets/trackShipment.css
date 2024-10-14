@@ -1,0 +1,183 @@
+/* Container for the entire track shipment section */
+.track-container {
+  max-width: 900px; /* Limit the width of the container */
+  margin: 50px auto; /* Center the container */
+  padding: 30px; /* Padding around the content */
+  background: #f9f9f9; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif; /* Font for the text */
+}
+
+/* Styling for main heading */
+h1 {
+  text-align: center; /* Center the heading */
+  color: #333; /* Dark color for the heading */
+  margin-bottom: 10px; /* Spacing below the heading */
+}
+
+/* Subtitle styling */
+.subtitle {
+  text-align: center; /* Center the subtitle */
+  color: #777; /* Gray color for subtitle */
+  margin-bottom: 30px; /* Spacing below subtitle */
+}
+
+/* Form styling for tracking order */
+form#track-form {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center the form elements */
+  gap: 10px; /* Space between form elements */
+  margin-bottom: 20px; /* Spacing below the form */
+}
+
+/* Input field for Order ID */
+input#order-id {
+  flex: 1; /* Make the input field flexible */
+  padding: 12px; /* Padding inside the input */
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size for the input */
+}
+
+/* Track button styling */
+button#track-btn {
+  padding: 12px 25px; /* Padding for the button */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s; /* Smooth background transition */
+}
+
+/* Button hover effect */
+button#track-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Container for shipment status */
+#shipment-status {
+  margin-top: 30px; /* Spacing above the shipment status */
+}
+
+/* Styling for the status heading */
+h2 {
+  color: #007bff; /* Blue color for status heading */
+  margin-bottom: 15px; /* Spacing below heading */
+}
+
+/* Styling for payment, contact, address, and order details */
+.payment-details,
+.contact-details,
+.address-details,
+.order-details {
+  margin-bottom: 20px; /* Spacing below each section */
+}
+
+/* Remove default list styles */
+ul {
+  list-style-type: none; /* No bullets */
+  padding: 0; /* No padding */
+}
+
+/* Timeline container */
+ul.timeline {
+  display: flex; /* Horizontal layout for timeline steps */
+  justify-content: space-between; /* Space out the steps */
+  margin-top: 20px; /* Margin above the timeline */
+  padding: 10px 0; /* Padding above and below */
+  border-top: 2px solid #007bff; /* Top border */
+  border-bottom: 2px solid #007bff; /* Bottom border */
+}
+
+/* Individual timeline steps */
+.timeline-step {
+  position: relative; /* Position relative for the before pseudo-element */
+  text-align: center; /* Center the text */
+  flex: 1; /* Flexible width */
+}
+
+/* Pseudo-element for the timeline steps */
+.timeline-step::before {
+  content: '○'; /* Circle for incomplete steps */
+  color: grey; /* Gray color for incomplete steps */
+  font-size: 24px; /* Size of the circle */
+  display: block; /* Block display to center */
+  margin: 0 auto; /* Center the circle */
+}
+
+/* Styling for completed steps */
+.timeline-step.completed::before {
+  content: '✔'; /* Check mark for completed steps */
+  color: green; /* Green color for completed steps */
+}
+
+/* Error message styling */
+.error {
+  color: red; /* Red color for error messages */
+  font-weight: bold; /* Bold text */
+  margin-top: 10px; /* Spacing above the error message */
+}
+
+/* Info text styling */
+.info-text {
+  color: #555; /* Darker gray for info text */
+  margin-top: 15px; /* Spacing above the info text */
+}
+
+/* Contact and address details */
+.contact-details h3,
+.address-details h3 {
+  margin-top: 10px; /* Spacing above section headings */
+  color: #333; /* Dark color for section headings */
+}
+
+/* Payment details section */
+.payment-details h3 {
+  color: #007bff; /* Blue color for payment details heading */
+}
+
+/* Order details styling */
+.order-details {
+  border: 1px solid #ddd; /* Light border around order details */
+  border-radius: 5px; /* Rounded corners */
+  padding: 15px; /* Padding inside the order details box */
+  background-color: #fff; /* White background for order details */
+}
+
+/* Individual order item box */
+.order-item {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  border: 1px solid #eee; /* Light border for order items */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside order item */
+  margin-bottom: 10px; /* Spacing between items */
+  background-color: #f7f7f7; /* Light gray background */
+}
+
+/* Image styling for order item */
+.order-image {
+  width: 60px; /* Fixed width for images */
+  height: 60px; /* Fixed height for images */
+  margin-right: 15px; /* Spacing to the right of the image */
+  border-radius: 4px; /* Rounded corners for images */
+}
+
+/* Order info text styling */
+.order-info {
+  flex: 1; /* Allow this div to grow */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+  .order-item {
+    flex-direction: column; /* Stack image and text on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .order-image {
+    margin-bottom: 10px; /* Space below the image */
+  }
+}

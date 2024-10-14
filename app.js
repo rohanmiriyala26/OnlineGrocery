@@ -10,11 +10,15 @@ app.use(express.urlencoded({ extended: true }));
 
 // Session middleware
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'yourSecretKey',
   resave: false,
   saveUninitialized: true,
+  cookie: { secure: false }  // Set secure: true if using HTTPS
 }));
-
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
 // Routes
 app.get('/products', productController.list);
 app.post('/cart/add', productController.addToCart);

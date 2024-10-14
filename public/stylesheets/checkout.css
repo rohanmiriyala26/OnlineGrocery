@@ -1,0 +1,86 @@
+/* Container for the checkout section */
+.checkout-container {
+    max-width: 600px; /* Limit the width of the container */
+    margin: 50px auto; /* Center the container */
+    padding: 20px; /* Padding around the content */
+    background: #ffffff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Arial', sans-serif; /* Font for the text */
+  }
+  
+  /* Styling for main heading */
+  h1 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark color for the heading */
+    margin-bottom: 10px; /* Spacing below the heading */
+    font-size: 24px; /* Increase font size */
+  }
+  
+  /* Subtitle styling */
+  .subtitle {
+    text-align: center; /* Center the subtitle */
+    color: #777; /* Gray color for subtitle */
+    margin-bottom: 30px; /* Spacing below subtitle */
+  }
+  
+  /* Form styling for checkout */
+  form {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Column layout */
+    gap: 20px; /* Space between form elements */
+  }
+  
+  /* Common styling for form fields */
+  .input-field {
+    padding: 12px; /* Padding inside the input */
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for the input */
+    transition: border-color 0.3s; /* Smooth border transition */
+  }
+  
+  /* Input focus effect */
+  .input-field:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Label styling */
+  label {
+    color: #555; /* Darker gray for labels */
+  }
+  
+  /* Button styling */
+  .button {
+    padding: 12px 20px; /* Padding for the button */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size for the button */
+    transition: background 0.3s; /* Smooth background transition */
+    width: 100%; /* Full width button */
+  }
+  
+  /* Button hover effect */
+  .button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Error message styling */
+  .error {
+    color: red; /* Red color for error messages */
+    font-weight: bold; /* Bold text */
+    margin-top: 10px; /* Spacing above the error message */
+    text-align: center; /* Center error message */
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 600px) {
+    .checkout-container {
+      padding: 15px; /* Less padding on smaller screens */
+    }
+  }
+  

@@ -13,11 +13,23 @@ block content
               p.cart-item-description Fresh and organic.
               p.unit-price Price: ₹#{item.price}
             .cart-item-quantity
-              button(type='button', class='qty-btn decrease', data-index=index) - 
-              input(type='number', name='quantity', value=item.quantity, min='1', class='quantity-input', data-index=index)
-              button(type='button', class='qty-btn increase', data-index=index) +
+              // Form to handle quantity changes
+              form(method='POST', action='/cart/update')
+                input(type='hidden', name='productId', value=item._id)
+                button(type='button', class='qty-btn decrease', data-product-id=item._id) -
+                input(type='number', name='newQty', value=item.quantity, min='1', class='quantity-input', data-product-id=item._id)
+                button(type='button', class='qty-btn increase', data-product-id=item._id) +
             .cart-item-price
-              | ₹#{item.price * item.quantity}
+              p ₹#{item.price * item.quantity}
+            // Form to handle item removal
+            form(method='POST', action='/cart/remove')
+              input(type='hidden', name='productId', value=item._id)
+              button(type='submit', class='remove-item', data-product-id=item._id)
+                i(class='fas fa-trash')
+
+      // More Products button placed above the total bill
+      a(href='/products', class='more-products-button') More Products 
+
       p.total-bill Total: ₹#{cart.reduce((sum, item) => sum + item.price * item.quantity, 0)}
       form(method='POST', action='/cart/checkout')
         input(type='submit', value='Checkout', class='button checkout-button')

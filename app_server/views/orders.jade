@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .orders-container
+    h1 Your Orders
+    if orders.length > 0
+      table.order-table
+        thead
+          tr
+            th Order ID
+            th Date
+            th Status
+            th Total
+            th Address
+        tbody
+          each order in orders
+            tr
+              td #{order.id}
+              td #{order.date}
+              td #{order.status}
+              td ₹#{order.total.toFixed(2)}
+              td #{order.address}
+    else
+      p No orders found.
+
+
+    a(href='/products', class='continue-shopping-button') Continue Shopping 
+

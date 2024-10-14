@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .track-container
+    h1 Track Your Shipment
+    p.subtitle Stay updated with your order status and payment details.
+
+    form#track-form
+      input(
+        type='text', 
+        id='order-id', 
+        name='order-id', 
+        placeholder='Enter your Order ID', 
+        required
+      )
+      button(type='button', id='track-btn') Track Order
+
+    div#shipment-status
+      p.info-text Enter your Order ID above to view status.
+
+  // Import CSS and JS
+  block append styles
+    link(rel='stylesheet', href='/stylesheets/trackShipment.css')
+
+  block append scripts
+    script(src='/javascripts/trackShipment.js')

@@ -5,20 +5,18 @@ block content
     .auth-container
       h1 Sign In
       form(method='POST', action='/signin')
-
         .form-group
-          label(for='email') Email:
-          input(type='email', id='email', name='email', required=true, placeholder='Enter your email', class='input-field')
+          label(for='username') Username:
+          input(type='text', name='username', required=true, placeholder='Enter your username', class='input-field')
 
         .form-group
           label(for='password') Password:
           input(type='password', name='password', required=true, placeholder='Enter your password', class='input-field')
 
         input(type='submit', value='Sign In', class='button auth-button')
-      
+
       p.or-divider OR
-      
-      // Signup button-like link
+
       p.create-account-text
         span Don't have an account? 
-        a(href='/signup', class='button create-account-button') Create an account
+        a(href='/signup', class='button create-account-button') Sign Up

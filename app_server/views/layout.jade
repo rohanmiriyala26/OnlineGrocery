@@ -5,6 +5,7 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://kit.fontawesome.com/a076d05399.js')
   body
     header
       nav
@@ -13,10 +14,45 @@ html
           li: a(href='/') Home
           li: a(href='/products') Products
           li: a(href='/about') About
-          li: a(href='/signin-signup') Sign In / Register
+          li: a(href='/track-shipment') Track Shipment
+          if user
+            li.dropdown
+              a(href='#', class='dropdown-toggle')
+                i(class='fas fa-user')
+                .dropdown-content
+                  |Hello, #{user.name}
+                  a(href='/profile') My Profile
+                  a(href='/orders') My Orders
+                  a(href='/logout') Logout
+          else
+            li: a(href='/signin-signup') Sign In / Register
           li: a(href='/cart')
             i(class='fas fa-shopping-cart')
     block content
     footer
-      p © 2024 QuickCart. All rights reserved.
+      div.container
+        div.footer-brand
+          h3(style='color: #ffeb3b; font-weight: bold;') QuickCart<sup>&reg;</sup>
+
+        div.footer-links
+          div.footer-section
+            h4 Shopping
+              ul
+              li: a(href='/track-shipment') Track Shipment
+              li: a(href='/cart') Shopping Cart
+
+          div.footer-section
+            h4 Products
+              ul
+              li: a(href='/products') All Products
+              li: a(href='/products?category=snacks') Snacks
+              li: a(href='/products?category=beverages') Beverages
+              
+
+          div.footer-section
+            h4 Development
+              ul
+              li: a(href='https://github.com/rohanmiriyala26/OnlineGrocery') GitHub Repository
+
+      p(style='text-align: center; padding: 20px 0;') © 2024 QuickCart. All rights reserved.
     script(src='/javascripts/script.js')

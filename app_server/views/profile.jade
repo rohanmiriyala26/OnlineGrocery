@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .profile-container
+    h1 Profile
+
+    // User Information Section
+    .user-info
+      h2 User Information
+      .info-item
+        strong Username:
+        | #{user.username}
+      .info-item
+        strong Name:
+        | #{user.name}
+      .info-item
+        strong Email:
+        | #{user.email}
+
+      // Link to change password
+      a(href='/change-password', class='button change-password-button') Change Password
+
+  
+    // Profile Settings Section
+    .profile-settings
+      h2 Profile Settings
+      form(method='POST', action='/update-profile')
+        .form-group
+          label(for='name') Name:
+          input(type='text', name='name', value=user.name, required=true, class='input-field')
+
+        .form-group
+          label(for='email') Email:
+          input(type='email', name='email', value=user.email, required=true, class='input-field')
+
+        input(type='submit', value='Update Profile', class='button update-button')
+
+    // Delete Account Section
+    .delete-account
+      h2 Delete Account
+      p Warning: This action cannot be undone!
+      form(method='POST', action='/delete-account')
+        input(type='submit', value='Delete Account', class='button delete-button', onclick='return confirm("Are you sure you want to delete your account? This action cannot be undone.");')
