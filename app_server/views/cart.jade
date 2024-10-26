@@ -34,7 +34,8 @@ block content
       form(method='POST', action='/cart/checkout')
         input(type='submit', value='Checkout', class='button checkout-button')
     else
-      p Your cart is empty.
+      h2 Your cart is empty.
+      a(href='/products', class='more-products-button')  Add Products
 
   // JavaScript to handle the quantity update and price calculation
   script(src='/javascripts/cart.js')
